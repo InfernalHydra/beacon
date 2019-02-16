@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {geolocated} from 'react-geolocated';
+import { Meteor } from 'meteor/meteor';
 
 class Button extends Component {
     constructor (props) {
@@ -9,11 +10,14 @@ class Button extends Component {
 
     }
     onClick () {        
-        
-        console.log(this.props.coords['latitude'])
-        console.log(this.props.coords['longitude'])
-
-        //Meteor.call()
+        let lat = this.props.coords['latitude'];
+        let long = this.props.coords['longitude'];        
+        Meteor.call('points.add', lat, long, (err) =>{
+            if(err)
+            {
+                alert(err);
+            }            
+        });
     }
     render() {
         if (!this.props.isGeolocationAvailable || !this.props.isGeolocationEnabled) {
