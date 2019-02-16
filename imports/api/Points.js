@@ -18,10 +18,10 @@ if(Meteor.isServer)
 }
 
 Meteor.methods({
-    'points.add'(latitute, longitude)
+    'points.add'(lat, lng)
     {
-        check(latitute, Number)
-        check(longitude, Number);
-        Points.add({latitute, longitude, date : new Date()});
+        check(lat, Number)
+        check(lng, Number);
+        Points.insert({lat, lng, date : new Date()});
     }
 })
