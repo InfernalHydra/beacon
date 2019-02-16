@@ -3,6 +3,7 @@ import {withTracker} from 'meteor/react-meteor-data'
 import GoogleMapReact from 'google-map-react'
 import { Meteor } from 'meteor/meteor';
 import Points from '../api/Points'
+import Pin from './Pin'
 
 
 const pick = (...props) => o => props.reduce((a, e) => ({ ...a, [e]: o[e] }), {});
@@ -32,6 +33,7 @@ class Map extends Component
                     heatmapLibrary = {true}
                     heatmap = {payload}
                 >
+                <Pin lat={32.8359936} lng={-97.3160448}/>
                 </GoogleMapReact>
             </div>
         );

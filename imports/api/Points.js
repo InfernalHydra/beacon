@@ -15,6 +15,10 @@ if(Meteor.isServer)
     Meteor.publish('points', () => {
         return Points.find({});        
     });
+
+    Meteor.publish('pointsHotspot', () => {
+        return Points.find({})
+    });
 }
 
 Meteor.methods({
