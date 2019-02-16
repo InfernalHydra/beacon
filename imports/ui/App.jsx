@@ -9,8 +9,8 @@ export default class App extends Component
             <div id='main-content'>
                 <Switch>
                     <Route exact path = '/' component = {Home}/>
-                    <Route path = '/record' component = {Donate}/>
-                    <Route path = '/map' component = {ViewDonations} />
+                    <Route path = '/record' component = {Record}/>
+                    <Route path = '/map' component = {Map} />
                 </Switch>
             </div>
         </BrowserRouter>
