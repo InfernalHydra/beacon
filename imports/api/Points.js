@@ -12,7 +12,7 @@ Points.deny({
 
 if(Meteor.isServer)
 {
-    Meteor.publish((points) => {
+    Meteor.publish('points', () => {
         return Points.find({});        
     });
 }

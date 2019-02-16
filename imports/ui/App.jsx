@@ -8,11 +8,10 @@ export default class App extends Component
     {
         return (
             <BrowserRouter>
-                <div id='main-content'>
+                <div id='main-content' style={{height : "100%"}}>
                     <Switch>
-                        
+                        <Route path = '/map' Component={() => <Map center={{lat : 32.7767, lng: 96.7970}} zoom={11}/>}/>
                         <Route path = '/record' component = {Record}/>
-                        
                     </Switch>
                 </div>
             </BrowserRouter>
