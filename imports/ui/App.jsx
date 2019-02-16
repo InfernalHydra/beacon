@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter, Switch, Route, NavLink, Redirect} from 'react-router-dom'
 import Record from './Record';
+import Map from './Map'
 export default class App extends Component
 {
     render()
