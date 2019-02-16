@@ -1,30 +1,12 @@
 import React, {Component} from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Input, Row, Button} from 'react-materialize';
-const googleMapsClient = require('@google/maps');
 
 export default class Manual extends Component {
     constructor (props) {
         super(props);
         let state = {};        
         this.handleChange = this.handleChange.bind(this)    
-        this.send = this.send.bind(this)
-    }
-    send () {
-        console.log(this.state)
-        const gmap = googleMapsClient.createClient({
-            key: 'AIzaSyDwycw2h_XzL94n0bSXRxbXX8rrSXOaD3w'
-        });
-
-        gmap.geocode({address: this.state.add + ", "  + this.state.city + ", " + this.state.state}, function(err, response) {
-            if (!err) {
-                console.log(response);
-            }
-            else {
-                console.log (err);
-            }
-        });
-
     }
 
     handleChange(e){
