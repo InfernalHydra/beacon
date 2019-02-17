@@ -8,6 +8,19 @@ import Pin from './Pin'
 
 const pick = (...props) => o => props.reduce((a, e) => ({ ...a, [e]: o[e] }), {});
 
+async function coordsToAddress(lat, lng)
+{
+    Geocode.setApiKey("AIzaSyDwycw2h_XzL94n0bSXRxbXX8rrSXOaD3w");
+    Geocode.enableDebug();
+    let promise = Geocode.fromLatLng(lat, lng).then((result, err) => {
+        console.log(result);
+        Session.set('address', result[0].formatted_address)
+    });
+    let data = await promise;
+    return data[0].formatted_address;
+    
+} 
+coordsToAddress(32.8359936, -97.3160448);
 class Map extends Component
 {
     render()
@@ -33,7 +46,7 @@ class Map extends Component
                     heatmapLibrary = {true}
                     heatmap = {payload}
                 >
-                <Pin lat={32.8359936} lng={-97.3160448}/>
+                {/* <Pin lat={32.8359936} lng={-97.3160448}/> */}
                 </GoogleMapReact>
             </div>
         );

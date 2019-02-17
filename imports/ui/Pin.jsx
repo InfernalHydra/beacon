@@ -20,16 +20,19 @@ const pinStyle = {
     padding: 4,
 }
 
-async function coordsToAddress(lat, lng)
-{
-    Geocode.setApiKey("AIzaSyDwycw2h_XzL94n0bSXRxbXX8rrSXOaD3w");
-    Geocode.enableDebug();
-    let promise = Geocode.fromLatLng(lat, lng).then((result, err) => {
-        console.log(result);
-        Session.set('address', result[0].formatted_address)
-    });
-} 
-coordsToAddress(32.8359936, -97.3160448);
+// async function coordsToAddress(lat, lng)
+// {
+//     Geocode.setApiKey("AIzaSyDwycw2h_XzL94n0bSXRxbXX8rrSXOaD3w");
+//     Geocode.enableDebug();
+//     let promise = Geocode.fromLatLng(lat, lng).then((result, err) => {
+//         console.log(result);
+//         Session.set('address', result[0].formatted_address)
+//     });
+//     let data = await promise;
+//     return data[0].formatted_address;
+    
+// } 
+// coordsToAddress(32.8359936, -97.3160448);
 export default class Pin extends Component
 {
     constructor(props)
@@ -44,7 +47,7 @@ export default class Pin extends Component
         return (
             <div id='pin-container' style = {pinStyle} onMouseOver = {this.handleMouseOver.bind(this)} onMouseOut = {this.handleMouseOut.bind(this)}>
                  <ReactSVG src='/pin.svg' />
-                {this.state.viewText && <div>{coordsToAddress(this.props.lat, this.props.lng)}</div>}
+                {this.state.viewText && <div>{this.props.textAlign}</div>}
             </div>
         );
     }
