@@ -20,7 +20,7 @@ async function coordsToAddress(lat, lng)
     return data[0].formatted_address;
     
 } 
-coordsToAddress(32.8359936, -97.3160448);
+// coordsToAddress(32.8359936, -97.3160448);
 class Map extends Component
 {
     render()
@@ -37,6 +37,7 @@ class Map extends Component
             }
         };
         //console.log(this.props.points.map(pick('lat', 'lng')));
+        Meteor.call('points.findNearby', 32.8359936, -97.3160448);        
         return(
             <div id="map-container" style={{height : "100%"}}>
                 <GoogleMapReact

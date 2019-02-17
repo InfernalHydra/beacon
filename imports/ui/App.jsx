@@ -4,12 +4,12 @@ import Record from './Record';
 import Map from './Map'
 import {Footer} from 'react-materialize';
 import {Navbar} from 'react-materialize';
+import { Meteor } from 'meteor/meteor';
 
 export default class App extends Component
 {
     constructor (props) {
         super(props);
-        console.log(window.location.pathname)
     }
     render()
     {
