@@ -1,14 +1,35 @@
 import React, {Component} from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Input, Row, Button} from 'react-materialize';
+import Geocode from 'react-geocode'
 
 export default class Manual extends Component {
     constructor (props) {
         super(props);
-        let state = {};        
+        this.state = {add:'', city:'',state:''};       
+        this.send = this.send.bind(this);
         this.handleChange = this.handleChange.bind(this)    
     }
+    send() {
+        console.log(this.state) 
+        let taddress = this.state.add + ', ' + this.state.city + ", " + this.state.state;
 
+        Geocode.setApiKey("AIzaSyDwycw2h_XzL94n0bSXRxbXX8rrSXOaD3w");
+        Geocode.fromAddress(taddress).then(
+            response => {
+              const { lat, lng } = response.results[0].geometry.location;
+              console.log(lat, lng);
+              Meteor.call('points.add', lat, lng, (err)=>{
+                  if (err) {
+                      console.log(err);
+                  }
+              })
+            },
+            error => {
+              console.error(error);
+            }
+          );
+    }
     handleChange(e){
         var type = e.target.name;
         var val = e.target.value;

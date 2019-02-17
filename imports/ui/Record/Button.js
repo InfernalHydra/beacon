@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {geolocated} from 'react-geolocated';
 import { Meteor } from 'meteor/meteor';
+import GoogleMapReact from 'google-map-react'
 
 class Button extends Component {
     constructor (props) {
