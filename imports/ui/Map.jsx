@@ -25,7 +25,7 @@ class Map extends Component
         };
         //console.log(this.props.points.map(pick('lat', 'lng')));
         return(
-            <div id="map-container" style={{height : "500px"}}>
+            <div id="map-container" style={{height : "100%"}}>
                 <GoogleMapReact
                     bootstrapURLKeys={{key : "AIzaSyDwycw2h_XzL94n0bSXRxbXX8rrSXOaD3w"}}
                     defaultCenter = {this.props.center}
